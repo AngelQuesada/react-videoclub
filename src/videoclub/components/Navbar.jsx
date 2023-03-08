@@ -6,43 +6,43 @@ import { startLogout } from "../../store/auth/thunks";
 
 export const Navbar = ( {drawerWidth = 0} ) => {
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const onLogout = () => {
-        dispatch( startLogout() );
-    }
+  const onLogout = () => {
+    dispatch( startLogout() );
+  }
 
-    return (
-        <AppBar 
-            position='fixed' 
-            sx={{
-                width: { sm: `calc(100% - ${ drawerWidth }px)` },
-                ml: { sm: `${ drawerWidth }px` }
-            }}
+  return (
+    <AppBar 
+      position='fixed' 
+      sx={{
+        width: { sm: `calc(100% - ${ drawerWidth }px)` },
+        ml: { sm: `${ drawerWidth }px` }
+      }}
+    >
+      <Toolbar>
+
+        <IconButton
+          color='inherit'
+          edge='start'
+          sx={{ mr: 2, display: { sm: 'none' }}}
         >
-            <Toolbar>
+          <MenuOutlined />
+        </IconButton>
 
-                <IconButton
-                    color='inherit'
-                    edge='start'
-                    sx={{ mr: 2, display: { sm: 'none' }}}
-                >
-                    <MenuOutlined />
-                </IconButton>
+        <Grid container direction='row' alignItems='center' justifyContent='space-between'>
 
-                <Grid container direction='row' alignItems='center' justifyContent='space-between'>
+          <Typography variant='h6' component='div' noWrap >
+            React Videoclub
+          </Typography>
 
-                    <Typography variant='h6' component='div' noWrap >
-                        React Videoclub
-                    </Typography>
+          <IconButton onClick={onLogout}>
+            <LogoutOutlined color='error' />
+          </IconButton>
+          
+        </Grid>
 
-                    <IconButton onClick={onLogout}>
-                        <LogoutOutlined color='error' />
-                    </IconButton>
-                    
-                </Grid>
-
-            </Toolbar>
-        </AppBar>
-    )
+      </Toolbar>
+    </AppBar>
+  )
 }

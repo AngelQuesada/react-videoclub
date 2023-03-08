@@ -4,13 +4,13 @@ import { MoviesPage } from "../pages/MoviesPage"
 
 
 export const VideoclubRoutes = () => {
-    return (
-        <Routes>
-            <Route path="/" element={ <MoviesPage /> }/>
-            <Route path="movie" element={ <MoviePage /> }/>
+  return (
+    <Routes>
+      <Route path="/" element={ <MoviesPage /> }/>
+      <Route path="movie" element={ <MoviePage /> }/>
 
-            <Route path="/*" element={ <Navigate to="/" /> } />
-        </Routes>
-    )
+      <Route path="/*" element={ <Navigate to="/" /> } />
+    </Routes>
+  )
 }
 

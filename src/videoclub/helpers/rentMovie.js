@@ -5,23 +5,23 @@ import { fireAlert } from "../../helpers/sweetAlert";
 
 export const rentMovie = async (movieId, uid) => {
 
-    let title = '';
+  let title = '';
 
-    try {
-        const movieRef = doc(FirebaseDB, "movies", movieId);
-        
-        await updateDoc(movieRef, {rented:uid})
+  try {
+    const movieRef = doc(FirebaseDB, "movies", movieId);
+    
+    await updateDoc(movieRef, {rented:uid})
 
-        const movieSnap = await getDoc(movieRef);
+    const movieSnap = await getDoc(movieRef);
 
-        title = movieSnap.data().title;
+    title = movieSnap.data().title;
 
-    } catch (error) {
-        console.log(error);
-        return false;
-    }
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 
-    fireAlert( 'success', `${title} rented!`, 'You rented the movie succesfully' );
+  fireAlert( 'success', `${title} rented!`, 'You rented the movie succesfully' );
 
-    return true;
+  return true;
 }

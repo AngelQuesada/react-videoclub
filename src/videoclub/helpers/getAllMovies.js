@@ -4,18 +4,18 @@ import { FirebaseDB } from "../../firebase/config";
 
 export const getAllMovies = async () => {
 
-    const collectionRef = collection(FirebaseDB, `movies`);
+  const collectionRef = collection(FirebaseDB, `movies`);
 
-    const docs = await getDocs(collectionRef);
+  const docs = await getDocs(collectionRef);
 
-    const movies = [];
+  const movies = [];
 
-    docs.forEach( doc => {
-        const movie = doc.data();
-        movie.id = doc.id;
+  docs.forEach( doc => {
+    const movie = doc.data();
+    movie.id = doc.id;
 
-        movies.push(movie);
-    })
-    
-    return movies;
+    movies.push(movie);
+  })
+  
+  return movies;
 }
